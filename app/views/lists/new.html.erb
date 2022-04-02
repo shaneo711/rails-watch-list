@@ -1,0 +1,10 @@
+<h1>Create a new list</h1>
+<div class="container">
+  <h1 class="mx-auto my-3" style="width: 500px; text-align: center;">Add a new list</h1>
+  <div class="container mx-auto" style="width: 600px;">
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :name %>
+      <%= f.submit "Add List", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

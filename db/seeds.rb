@@ -6,16 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts 'Deleting database...'
+Movie.destroy_all
+puts 'Database deleted!'
+
 url = 'http://tmdb.lewagon.com/movie/top_rated'
 movies = URI.parse(url).open.read
 movie_list = JSON.parse(movies)
-image_base_url = 'https://image.tmdb.org/t/p/w300/'
+image_base_url = 'https://image.tmdb.org/t/p/w300'
 
+puts 'Creating movies...'
 movie_list['results'].each do |movie|
-  Movie.create!(
+  movie = Movie.new(
     title: movie['title'],
     overview: movie['overview'],
     poster_url: "#{image_base_url}#{movie['poster_path']}",
     rating: movie['vote_average']
   )
+  movie.save
+  puts "Movie #{movie.id} created."
 end
+puts 'Database seed complete.'
