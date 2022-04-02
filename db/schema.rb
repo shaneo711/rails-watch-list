@@ -36,13 +36,10 @@ ActiveRecord::Schema.define(version: 2022_04_02_001110) do
     t.text "overview"
     t.string "poster_url"
     t.decimal "rating"
-    t.bigint "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["list_id"], name: "index_movies_on_list_id"
   end
 
   add_foreign_key "bookmarks", "lists"
   add_foreign_key "bookmarks", "movies"
-  add_foreign_key "movies", "lists"
 end
