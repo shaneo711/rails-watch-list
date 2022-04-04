@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+IMAGE_SIZE = 'w500'
+
 puts 'Deleting database...'
 Movie.destroy_all
 puts 'Database deleted!'
@@ -13,7 +15,7 @@ puts 'Database deleted!'
 url = 'http://tmdb.lewagon.com/movie/top_rated'
 movies = URI.parse(url).open.read
 movie_list = JSON.parse(movies)
-image_base_url = 'https://image.tmdb.org/t/p/w300'
+image_base_url = "https://image.tmdb.org/t/p/#{IMAGE_SIZE}"
 
 puts 'Creating movies...'
 movie_list['results'].each do |movie|
