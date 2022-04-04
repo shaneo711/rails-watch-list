@@ -4,7 +4,8 @@
   <div class="container mx-auto" style="width: 600px;">
     <%= simple_form_for @list do |f| %>
       <%= f.input :name %>
-      <%= f.submit "Add List", class: "btn btn-success" %>
+      <%= f.input :image_url %>
+      <%= f.submit "Add List", class: "btn btn-flat" %>
     <% end %>
   </div>
 </div>
