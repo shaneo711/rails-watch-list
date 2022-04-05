@@ -42,14 +42,14 @@
 
 
 .btn-delete {
-  color: red;
-  font-size: 16px;
+  color: white;
   padding: 8px 24px;
   border-radius: 8px;
-  background: #ffffff;
+  background: red;
   transition: background 0.3s ease;
 }
 
 .btn-delete:hover {
-  border: 1px, solid, rgb(230, 62, 62);
+  background: rgb(172, 0, 0);
+  color: white;
 }
