@@ -7,6 +7,7 @@ class ListsController < ApplicationController
 
   def show
     @bookmark = Bookmark.new
+    @movies = @list.bookmarks.count == 1 ? 'movie' : 'movies'
   end
 
   def new
