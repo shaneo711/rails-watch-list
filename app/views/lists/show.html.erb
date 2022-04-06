@@ -6,12 +6,12 @@
 
 
 <div class="container mt-4 d-flex justify-content-around">
-  <div class="container d-flex flex-column justify-content-between w-60">
-    <div class="container d-flex justify-content-start">
-      <h2 class="btn btn-primary"><%= @list.movies.count %> movies</h2>
-    </div>
-    <div class="container d-flex flex-column justify-content-between">
-      <div class="container cards-container mt-3 d-flex flex-wrap justify-content-start">
+  <div class="row">
+    <div class="col d-flex flex-column justify-content-between align-items-center">
+      <div class="container d-flex justify-content-end">
+        <h2 class="btn btn-primary"><%= @list.movies.count %> movies</h2>
+      </div>
+      <div class="container d-flex flex-column justify-content-between align-items-center">
         <% @list.bookmarks.each do |bookmark| %>
           <div class="card-trip m-3 d-flex flex-column justify-content-between">
             <img src=<%= bookmark.movie.poster_url %> />
@@ -27,17 +27,17 @@
             </div>
           </div>
         <% end %>
-      </div>
     </div>
-  </div>
-  <div class="container w-40">
-    <h1 class="mx-auto my-3" style="text-align: center;">Add a new bookmark</h1>
-    <div class="container mx-auto">
-      <%= simple_form_for [@list, @bookmark] do |f| %>
-        <%= f.association :movie, as: :select %>
-        <%= f.input :comment %>
-        <%= f.submit "Add Bookmark", class: "btn btn-flat" %>
-      <% end %>
+    </div>
+    <div class="col mb-5">
+      <h1 class="mx-auto my-3" style="text-align: center;">Add a new bookmark</h1>
+      <div class="container mx-auto">
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.association :movie, as: :select %>
+          <%= f.input :comment %>
+          <%= f.submit "Add Bookmark", class: "btn btn-flat" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
